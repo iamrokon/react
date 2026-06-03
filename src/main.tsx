@@ -17,6 +17,17 @@ import App from './App.tsx'
 //   </div>
 // )
 
+// let index = 0;
+// setInterval(() => {
+//   const element = (
+//     <h1 className='heading' tabIndex={index}>
+//       <span className='text'>Hello {new Date().toLocaleTimeString()}</span>
+//     </h1>
+//   );
+//   createRoot(document.getElementById('root')!).render(element)
+//   index++;
+// }, 1000)
+
 createRoot(document.getElementById('root')!).render(
   // 'Hello World!'
   // myElement

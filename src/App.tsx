@@ -5,6 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Increment from './components/Increment'
 import Fruits from './components/Fruits'
+import Clock from './components/Clock'
+import ClockClass from './components/ClockClass'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +16,9 @@ function App() {
       {/* <Increment />
       <Increment />
       <Increment /> */}
-      <Fruits />
+      {/* <Fruits /> */}
+      {/* <Clock locale='bn-BD'/> */}
+      <ClockClass locale='bn-BD'/>
     </>
   )
 }
