@@ -33,13 +33,24 @@ class ClockClass extends React.Component<ClockProps, ClockState> {
     
     render(){
         const { date, locale } = this.state;
+        let button;
+        if (locale === 'bn-BD'){
+            button = (
+                <Button change={this.handleClick} locale='en-US' show={false}/>
+            )
+        } else {
+            button = (
+                <Button change={this.handleClick} locale='bn-BD' show/>
+            )
+        }
         return(
             <div>
                 <h1 className='heading'>
                     <span className='text'>Hello {date.toLocaleTimeString(locale)}</span>
                 </h1>
                 {/* <button onClick={() => this.handleClick('en-US')}>Click Here</button> */}
-                <Button change={this.handleClick} locale='en-US'/>
+                {/* <Button change={this.handleClick} locale='en-US'/> */}
+                {button}
             </div>
         );
     }

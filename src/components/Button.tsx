@@ -3,6 +3,7 @@ import React from "react";
 interface ButtonProps {
     change: (locale: string) => void;
     locale: string;
+    show: boolean;
 }
 class Button extends React.Component<ButtonProps> {
     shouldComponentUpdate(nextProps: Readonly<ButtonProps>): boolean {
@@ -16,9 +17,12 @@ class Button extends React.Component<ButtonProps> {
         return true;
     }
     render(){
-        const { change, locale } = this.props;
+        const { change, locale, show } = this.props;
         return(
-            <button type="button" onClick={() => change(locale)}>Click Here</button>
+            <>
+                <button type="button" onClick={() => change(locale)}>{ locale === 'bn-BD' ? 'বাংলা' : 'English'}</button>
+                {show && <p>Hello World</p>}
+            </>
         );
     }
 }

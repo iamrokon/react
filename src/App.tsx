@@ -7,9 +7,11 @@ import Increment from './components/Increment'
 import Fruits from './components/Fruits'
 import Clock from './components/Clock'
 import ClockClass from './components/ClockClass'
+import ClockList from './components/ClockList'
 
 function App() {
   const [count, setCount] = useState(0)
+  const quantities = [1, 2, 3];
 
   return (
     <>
@@ -18,7 +20,8 @@ function App() {
       <Increment /> */}
       {/* <Fruits /> */}
       {/* <Clock locale='bn-BD'/> */}
-      <ClockClass locale='bn-BD'/>
+      {/* <ClockClass locale='bn-BD'/> */}
+      <ClockList locale='bn-BD' quantities={quantities}/>
     </>
   )
 }
