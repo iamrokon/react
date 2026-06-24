@@ -10,6 +10,7 @@ import Clock from './components/Clock'
 import ClockClass from './components/ClockClass'
 import ClockList from './components/ClockList'
 import Form from './components/Form'
+import Calculator from './components/Calculator'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,7 +25,8 @@ function App() {
       {/* <Clock locale='bn-BD'/> */}
       {/* <ClockClass locale='bn-BD'/> */}
       {/* <ClockList locale='bn-BD' quantities={quantities}/> */}
-      <Form />
+      {/* <Form /> */}
+      <Calculator />
     </>
   )
 }

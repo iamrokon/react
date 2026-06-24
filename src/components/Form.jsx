@@ -4,29 +4,37 @@ export default class Form extends React.Component {
     state = {
         title: 'Javascript',
         text: 'Javascript is awesome',
-        library: 'React',
+        // library: 'React',
+        library: null,
         isAwesome: true
     }
     handleChange = (e) => {
-        if(e.target.type === 'text'){
-            this.setState({
-                title: e.target.value
-            })
-        } else if(e.target.type === 'textarea') {
-            this.setState({
-                text: e.target.value
-            })
-        } else if(e.target.type === 'select-one') {
-            this.setState({
-                library: e.target.value
-            })
-        } else if(e.target.type === 'checkbox') {
-            this.setState({
-                isAwesome: e.target.checked
-            })
-        } else {
-            console.log('nothing here')
-        }
+        // if(e.target.type === 'text'){
+        //     this.setState({
+        //         title: e.target.value
+        //     })
+        // } else if(e.target.type === 'textarea') {
+        //     this.setState({
+        //         text: e.target.value
+        //     })
+        // } else if(e.target.type === 'select-one') {
+        //     this.setState({
+        //         library: e.target.value
+        //     })
+        // } else if(e.target.type === 'checkbox') {
+        //     this.setState({
+        //         isAwesome: e.target.checked
+        //     })
+        // } else {
+        //     console.log('nothing here')
+        // }
+        // this.setState({
+        //     [e.target.name]: e.target.value
+        // })
+        const {name, value, type, checked} = e.target
+        this.setState({
+            [name]: type === 'checkbox' ? checked : value
+        })
     }
     submitHandler = (e) => {
         e.preventDefault()
@@ -40,6 +48,7 @@ export default class Form extends React.Component {
                 <form onSubmit={this.submitHandler}>
                     <input 
                         type="text" 
+                        name="title" 
                         placeholder="Enter title" 
                         value={title} 
                         onChange={this.handleChange} 
@@ -54,14 +63,16 @@ export default class Form extends React.Component {
                     <p>{text}</p>
                     
                     <br /><br />
-                    <select value={library} onChange={this.handleChange}>
+                    <select name="library" value={library} onChange={this.handleChange}>
                         <option value="React">React</option>
                         <option value="Angular">Angular</option>
                     </select>
+                    <p>{library}</p>
                     <br /><br />
-                    <input type="checkbox" checked={isAwesome}
+                    <input type="checkbox" name="isAwesome" checked={isAwesome}
                         onChange={this.handleChange} 
                     />
+                    <p>{isAwesome ? 'Awesome' : 'Not Awesome'}</p>
                     <br /><br />
                     <input type="submit" value="Submit" />
                 </form>
