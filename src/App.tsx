@@ -11,6 +11,9 @@ import ClockClass from './components/ClockClass'
 import ClockList from './components/ClockList'
 import Form from './components/Form'
 import Calculator from './components/Calculator'
+import Text from './components/Text'
+import Emoji from './components/Emoji'
+import Bracket from './components/Bracket'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +30,16 @@ function App() {
       {/* <ClockList locale='bn-BD' quantities={quantities}/> */}
       {/* <Form /> */}
       <Calculator />
+      {/* <Text /> */}
+      <Emoji>
+        {({ addEmoji }) => (
+          <Bracket>
+            {({ addBracket }) => (
+              <Text addEmoji={addEmoji} addBracket={addBracket} />
+            )}
+          </Bracket>
+        )}
+      </Emoji>
     </>
   )
 }
