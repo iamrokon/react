@@ -14,6 +14,8 @@ import Calculator from './components/Calculator'
 import Text from './components/Text'
 import Emoji from './components/Emoji'
 import Bracket from './components/Bracket'
+import ClickCounter from './components/ClickCounter'
+import HoverCounter from './components/HoverCounter'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,9 +31,9 @@ function App() {
       {/* <ClockClass locale='bn-BD'/> */}
       {/* <ClockList locale='bn-BD' quantities={quantities}/> */}
       {/* <Form /> */}
-      <Calculator />
+      {/* <Calculator /> */}
       {/* <Text /> */}
-      <Emoji>
+      {/* <Emoji>
         {({ addEmoji }) => (
           <Bracket>
             {({ addBracket }) => (
@@ -39,7 +41,10 @@ function App() {
             )}
           </Bracket>
         )}
-      </Emoji>
+      </Emoji> */}
+
+      <ClickCounter />
+      <HoverCounter />
     </>
   )
 }
