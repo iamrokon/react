@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 
 import withCounter from "./HOC/withCounter";
 
@@ -20,13 +20,32 @@ import withCounter from "./HOC/withCounter";
 //         )
 //     }
 // }
-const HoverCounter = (props) => {
-    const { count, incrementCount } = props;
+// const HoverCounter = (props) => {
+//     const { count, incrementCount } = props;
 
+//     return (
+//         <div>
+//             <h1 onMouseOver={incrementCount}>Hovered {count} times</h1>
+//         </div>
+//     )
+// }
+// export default withCounter(HoverCounter);
+
+export default function HoverCounter({ count, incrementCount }) {
     return (
         <div>
             <h1 onMouseOver={incrementCount}>Hovered {count} times</h1>
         </div>
     )
 }
-export default withCounter(HoverCounter);
+
+// export default function HoverCounter({ count, incrementCount, theme }) {
+//     const style = theme === 'dark'
+//         ? { backgroundColor: '#000000', color: '#ffffff' }
+//         : null;
+//     return (
+//         <div onMouseOver={incrementCount} style={style}>
+//             <h1>Hovered {count} times</h1>
+//         </div>
+//     )
+// }

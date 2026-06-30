@@ -1,5 +1,6 @@
 // last working page : 66
 import { useState } from 'react'
+import React from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -16,6 +17,8 @@ import Emoji from './components/Emoji'
 import Bracket from './components/Bracket'
 import ClickCounter from './components/ClickCounter'
 import HoverCounter from './components/HoverCounter'
+import Section from './components/Section'
+import Counter from './components/Counter'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -43,10 +46,47 @@ function App() {
         )}
       </Emoji> */}
 
-      <ClickCounter />
-      <HoverCounter />
+      {/* <ClickCounter />
+      <HoverCounter /> */}
+      <div className='app'>
+        {/* <Counter
+          render={(count, incrementCount) => (
+            <ClickCounter count={count} incrementCount={incrementCount} />
+          )}
+        />
+        <Counter
+          render={(count, incrementCount) => (
+            <HoverCounter count={count} incrementCount={incrementCount} />
+          )}
+        /> */}
+        <Counter>
+          {(count, incrementCount) => (
+              <ClickCounter count={count} incrementCount={incrementCount} />
+          )}
+        </Counter>
+        <Counter>
+          {(count, incrementCount) => (
+              <HoverCounter count={count} incrementCount={incrementCount} />
+          )}
+        </Counter>
+      </div>
     </>
   )
 }
+
+// class App extends React.Component {
+//   state = {
+//     theme: 'dark',
+//   }
+
+//   render() {
+//     const { theme } = this.state;
+//     return (
+//       <div className='app'>
+//         <Section theme={theme} />
+//       </div>
+//     )
+//   }
+// }
 
 export default App
