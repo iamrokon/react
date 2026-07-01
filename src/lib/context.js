@@ -13,7 +13,7 @@ class Context {
     }
 }
 
-const createContext = (value = null) => {
+function createContext(value = null) {
     const context = new Context(value);
     return {
         Provider: context.Provider,

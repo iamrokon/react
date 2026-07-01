@@ -31,21 +31,21 @@ import withCounter from "./HOC/withCounter";
 // }
 // export default withCounter(HoverCounter);
 
-export default function HoverCounter({ count, incrementCount }) {
-    return (
-        <div>
-            <h1 onMouseOver={incrementCount}>Hovered {count} times</h1>
-        </div>
-    )
-}
-
-// export default function HoverCounter({ count, incrementCount, theme }) {
-//     const style = theme === 'dark'
-//         ? { backgroundColor: '#000000', color: '#ffffff' }
-//         : null;
+// export default function HoverCounter({ count, incrementCount }) {
 //     return (
-//         <div onMouseOver={incrementCount} style={style}>
-//             <h1>Hovered {count} times</h1>
+//         <div>
+//             <h1 onMouseOver={incrementCount}>Hovered {count} times</h1>
 //         </div>
 //     )
 // }
+
+export default function HoverCounter({ count, incrementCount, theme }) {
+    const style = theme === 'dark'
+        ? { backgroundColor: '#000000', color: '#ffffff' }
+        : null;
+    return (
+        <div onMouseOver={incrementCount} style={style}>
+            <h1>Hovered {count} times</h1>
+        </div>
+    )
+}
