@@ -76,21 +76,51 @@ import ThemeContext from './context/themeContext'
 //   )
 // }
 
+// class App extends React.Component {
+//   state = {
+//     theme: 'light',
+//   }
+
+//   switchTheme = () => {
+//     this.setState((prevState) => ({
+//       theme: prevState.theme === 'light' ? 'dark' : 'light',
+//     }))
+//   }
+
+//   render() {
+//     const { theme } = this.state;
+//     return (
+//       <div className='app'>
+//         <ThemeContext.Provider value={{ theme, switchTheme: this.switchTheme }}>
+//           <Section />
+//         </ThemeContext.Provider>
+//       </div>
+//     )
+//   }
+// }
+
+// Component rerender off korte object er bodole state pathabo
+
 class App extends React.Component {
   state = {
-    theme: 'dark',
+    theme: 'light',
+    switchTheme: () => {
+      this.setState((prevState) => ({
+        theme: prevState.theme === 'light' ? 'dark' : 'light',
+      }))
+    }
   }
 
   render() {
-    const { theme } = this.state;
     return (
       <div className='app'>
-        <ThemeContext.Provider value={theme}>
+        <ThemeContext.Provider value={this.state}>
           <Section />
         </ThemeContext.Provider>
       </div>
     )
   }
 }
+
 
 export default App

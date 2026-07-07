@@ -39,13 +39,17 @@ import withCounter from "./HOC/withCounter";
 //     )
 // }
 
-export default function HoverCounter({ count, incrementCount, theme }) {
+export default function HoverCounter({ count, incrementCount, theme, switchTheme }) {
     const style = theme === 'dark'
         ? { backgroundColor: '#000000', color: '#ffffff' }
         : null;
+    console.log('HoverCounter rendered');
     return (
         <div onMouseOver={incrementCount} style={style}>
             <h1>Hovered {count} times</h1>
+            <button type="button" onClick={switchTheme}>
+                Change Theme
+            </button>
         </div>
     )
 }
