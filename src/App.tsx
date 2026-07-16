@@ -1,4 +1,4 @@
-// last working page : 66
+// last working page : 122
 import { useState } from 'react'
 import React from 'react'
 import reactLogo from './assets/react.svg'
@@ -20,6 +20,8 @@ import HoverCounter from './components/HoverCounter'
 import Section from './components/Section'
 import Counter from './components/Counter'
 import ThemeContext from './context/themeContext'
+// import Todos from './components/TodoClass'
+import Todo from './components/Todo'
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -101,24 +103,35 @@ import ThemeContext from './context/themeContext'
 
 // Component rerender off korte object er bodole state pathabo
 
-class App extends React.Component {
-  state = {
-    theme: 'light',
-    switchTheme: () => {
-      this.setState((prevState) => ({
-        theme: prevState.theme === 'light' ? 'dark' : 'light',
-      }))
-    }
-  }
+// class App extends React.Component {
+//   state = {
+//     theme: 'light',
+//     switchTheme: () => {
+//       this.setState((prevState) => ({
+//         theme: prevState.theme === 'light' ? 'dark' : 'light',
+//       }))
+//     }
+//   }
 
+//   render() {
+//     return (
+//       <div className='app'>
+//         <ThemeContext.Provider value={this.state}>
+//           <Section />
+//         </ThemeContext.Provider>
+//       </div>
+//     )
+//   }
+// }
+
+class App extends React.Component {
   render() {
     return (
-      <div className='app'>
-        <ThemeContext.Provider value={this.state}>
-          <Section />
-        </ThemeContext.Provider>
+      <div className="app">
+        {/* <Todos /> */}
+        <Todo />
       </div>
-    )
+    );
   }
 }
 
