@@ -4,8 +4,12 @@ import React from "react"
 function Todo() {
     // const [todos, setTodos] = React.useState([])
     // const [loading, setLoading] = React.useState(true)
-    const [todo, setTodo] = React.useState('')
+    const [todo, setTodo] = React.useState({
+        title: '',
+        description: '',
+    })
     const [warning, setWarning] = React.useState(null)
+    const { title, description } = todo;
 
     const handleInput = (e) => {
         const inputValue = e.target.value;
@@ -30,9 +34,17 @@ function Todo() {
 
     return (
         <div>
-            <p>{todo}</p>
+            <p>{title}</p>
             <p>
-                <textarea name="todo" value={todo} onChange={handleInput} />
+                <input type="text" name="title" value={title} onChange={(e) =>
+                    setTodo({ ...todo, title: e.target.value })
+                } />
+            </p>
+            <br />
+            <p>
+                <textarea name="description" value={description} onChange={(e) =>
+                    setTodo({ ...todo, description: e.target.value })
+                } />
             </p>
             <hr />
             <p>{warning || 'Good choice!'}</p>
