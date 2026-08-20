@@ -35,6 +35,7 @@ function Todo() {
     return (
         <div>
             <p>{title}</p>
+            <p>{description}</p>
             <p>
                 <input type="text" name="title" value={title} onChange={(e) =>
                     setTodo({ ...todo, title: e.target.value })
@@ -47,7 +48,7 @@ function Todo() {
                 } />
             </p>
             <hr />
-            <p>{warning || 'Good choice!'}</p>
+            {/* <p>{warning || 'Good choice!'}</p> */}
         {/* // <ul>
         //     {todos.map(todo => (
         //         <li key={todo.id}>

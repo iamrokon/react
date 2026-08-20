@@ -1,4 +1,4 @@
-// last working page : 122
+// last working page : 129
 import { useState } from 'react'
 import React from 'react'
 import reactLogo from './assets/react.svg'
@@ -129,7 +129,8 @@ class App extends React.Component {
     return (
       <div className="app">
         {/* <Todos /> */}
-        <Todo />
+        {/* <Todo /> */}
+        <Counter />
       </div>
     );
   }
