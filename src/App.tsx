@@ -1,4 +1,4 @@
-// last working page : 129
+// last working page : 130
 import { useState } from 'react'
 import React from 'react'
 import reactLogo from './assets/react.svg'
@@ -22,6 +22,8 @@ import Counter from './components/Counter'
 import ThemeContext from './context/themeContext'
 // import Todos from './components/TodoClass'
 import Todo from './components/Todo'
+import MyComponentClass from './components/MyComponentClass'
+import MyComponent from './components/MyComponent'
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -124,16 +126,34 @@ import Todo from './components/Todo'
 //   }
 // }
 
-class App extends React.Component {
-  render() {
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div className="app">
+//         {/* <Todos /> */}
+//         {/* <Todo /> */}
+//         {/* <Counter /> */}
+//         {/* <MyComponentClass /> */}
+//         <MyComponent />
+//       </div>
+//     );
+//   }
+// }
+
+function App() {
+  const [show, setShow] = useState(true)
     return (
       <div className="app">
         {/* <Todos /> */}
         {/* <Todo /> */}
-        <Counter />
+        {/* <Counter /> */}
+        {/* <MyComponentClass /> */}
+        <div>{show && <MyComponent/>}</div>
+        <p>
+          <button type="button" onClick={() => setShow((prevShow) => !prevShow)}>{show ? 'Hide Post' : 'Show Post'}</button>
+        </p>
       </div>
     );
-  }
 }
 
 
