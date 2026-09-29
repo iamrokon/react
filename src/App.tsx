@@ -1,4 +1,4 @@
-// last working page : 143
+// last working page : 148
 import { useCallback, useMemo, useState } from 'react'
 import React from 'react'
 import reactLogo from './assets/react.svg'
@@ -10,7 +10,7 @@ import Fruits from './components/Fruits'
 import Clock from './components/Clock'
 import ClockClass from './components/ClockClass'
 import ClockList from './components/ClockList'
-import Form from './components/Form'
+import FormClass from './components/FormClass'
 import Calculator from './components/Calculator'
 import Text from './components/Text'
 import Emoji from './components/Emoji'
@@ -27,6 +27,8 @@ import MyComponent from './components/MyComponent'
 import Title from './components/Title'
 import ShowCount from './components/ShowCount'
 import ButtonFunction from './components/ButtonFunction'
+import Form from './components/Form'
+import Time from './components/Time'
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -41,7 +43,7 @@ import ButtonFunction from './components/ButtonFunction'
 //       {/* <Clock locale='bn-BD'/> */}
 //       {/* <ClockClass locale='bn-BD'/> */}
 //       {/* <ClockList locale='bn-BD' quantities={quantities}/> */}
-//       {/* <Form /> */}
+//       {/* <FormClass /> */}
 //       {/* <Calculator /> */}
 //       {/* <Text /> */}
 //       {/* <Emoji>
@@ -172,6 +174,8 @@ function App() {
         <hr />
         <ShowCount count={count2} title="Counter 2" />
         <ButtonFunction handleClick={incrementByFive}>Increment Counter 5</ButtonFunction>
+        <Form />
+        <Time />
         {/* <Todos /> */}
         {/* <Todo /> */}
         {/* <Counter /> */}
