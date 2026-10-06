@@ -21,23 +21,51 @@ import React from "react";
 //     }
 // }
 
-function Counter(){
-    const [count, setCount] = React.useState(0);
-    let i = 0;
+// function Counter(){
+//     const [count, setCount] = React.useState(0);
+//     let i = 0;
 
-    const addFive = () => {
-        while(i < 5){
-            setCount((prevState) => prevState + 1);
-            i++;
-        }
+//     const addFive = () => {
+//         while(i < 5){
+//             setCount((prevState) => prevState + 1);
+//             i++;
+//         }
+//     }
+//     return (
+//         <div>
+//             <p>Count: {count}</p>
+//             <p><button type="button" onClick={() => setCount((prevState) => prevState + 1)}>Add 1</button></p>
+//             <p><button type="button" onClick={addFive}>Add 5</button></p>
+//         </div>
+//     )
+// }
+
+const initialState = 0;
+
+const reducer = (state, action) => {
+
+    switch(action) {
+        case 'increment':
+            return state + 1;
+
+        case 'decrement':
+            return state - 1;
+
+        default:
+            return state;
     }
-    return (
-        <div>
-            <p>Count: {count}</p>
-            <p><button type="button" onClick={() => setCount((prevState) => prevState + 1)}>Add 1</button></p>
-            <p><button type="button" onClick={addFive}>Add 5</button></p>
-        </div>
-    )
 }
 
+function Counter() {
+    const [count, dispatch] = React.useReducer(reducer, initialState);
+
+    return (
+        <div>
+            <div>Count - {count}</div>
+            <button type="button" onClick={() => dispatch('increment')}>Increment</button>
+            <button type="button" onClick={() => dispatch('decrement')}>Decrement</button>
+        </div>
+
+    )
+}
 export default Counter;

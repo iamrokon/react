@@ -1,4 +1,4 @@
-// last working page : 148
+// last working page : 160
 import { useCallback, useMemo, useState } from 'react'
 import React from 'react'
 import reactLogo from './assets/react.svg'
@@ -29,6 +29,11 @@ import ShowCount from './components/ShowCount'
 import ButtonFunction from './components/ButtonFunction'
 import Form from './components/Form'
 import Time from './components/Time'
+import ComplexCounter from './components/ComplexCounter'
+import CounterThree from './components/CounterThree'
+import ComponentA from './components/ComponentA'
+import counterContext from './context/counterContext'
+
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -145,48 +150,74 @@ import Time from './components/Time'
 //   }
 // }
 
-function App() {
-    // const [show, setShow] = useState(true)
-    const [count1, setCount1] = useState(0)
-    const [count2, setCount2] = useState(0)
-    const [show, setShow] = useState(true)
+// function App() {
+//     // const [show, setShow] = useState(true)
+//     const [count1, setCount1] = useState(0)
+//     const [count2, setCount2] = useState(0)
+//     const [show, setShow] = useState(true)
 
-    const incrementByOne = useCallback(() => {
-      setCount1((prevCount) => prevCount + 1)
-    }, [])
+//     const incrementByOne = useCallback(() => {
+//       setCount1((prevCount) => prevCount + 1)
+//     }, [])
 
-    const incrementByFive = useCallback(() => {
-      setCount2((prevCount) => prevCount + 5)
-    }, [])
+//     const incrementByFive = useCallback(() => {
+//       setCount2((prevCount) => prevCount + 5)
+//     }, [])
 
-    const isEvenOrOdd = useMemo(() => {
-      let i = 0;
-      while (i < 1000000000) i++;
-      return count1 % 2 === 0
-    }, [count1]);
+//     const isEvenOrOdd = useMemo(() => {
+//       let i = 0;
+//       while (i < 1000000000) i++;
+//       return count1 % 2 === 0
+//     }, [count1]);
 
-    return (
-      <div className="app">
-        <Title />
-        <ShowCount count={count1} title="Counter 1" />
-        <span>{isEvenOrOdd ? 'Even' : 'Odd'}</span>
-        <ButtonFunction handleClick={incrementByOne}>Increment Counter 1</ButtonFunction>
-        <hr />
-        <ShowCount count={count2} title="Counter 2" />
-        <ButtonFunction handleClick={incrementByFive}>Increment Counter 5</ButtonFunction>
-        <Form />
-        <Time />
-        {/* <Todos /> */}
-        {/* <Todo /> */}
-        {/* <Counter /> */}
-        {/* <MyComponentClass /> */}
-        {/* <div>{show && <MyComponent/>}</div>
-        <p>
-          <button type="button" onClick={() => setShow((prevShow) => !prevShow)}>{show ? 'Hide Post' : 'Show Post'}</button>
-        </p> */}
-      </div>
-    );
+//     return (
+//       <div className="app">
+//         <Title />
+//         <ShowCount count={count1} title="Counter 1" />
+//         <span>{isEvenOrOdd ? 'Even' : 'Odd'}</span>
+//         <ButtonFunction handleClick={incrementByOne}>Increment Counter 1</ButtonFunction>
+//         <hr />
+//         <ShowCount count={count2} title="Counter 2" />
+//         <ButtonFunction handleClick={incrementByFive}>Increment Counter 5</ButtonFunction>
+//         <Form />
+//         <Time />
+//         <Counter />
+//         <ComplexCounter />
+//         <CounterThree />
+//         {/* <Todos /> */}
+//         {/* <Todo /> */}
+//         {/* <Counter /> */}
+//         {/* <MyComponentClass /> */}
+//         {/* <div>{show && <MyComponent/>}</div>
+//         <p>
+//           <button type="button" onClick={() => setShow((prevShow) => !prevShow)}>{show ? 'Hide Post' : 'Show Post'}</button>
+//         </p> */}
+//       </div>
+//     );
+// }
+
+const initialState = 0
+const reducer = (state, action) => {
+  switch (action) {
+    case 'increment':
+      return state + 1
+    case 'decrement':
+      return state - 1
+    default:
+      return state
+  }
 }
 
+function App() {
+  const [count, dispatch] = React.useReducer(reducer, initialState)
+  return (
+    <div className="app">
+      <div>Count: {count}</div>
+      <counterContext.Provider value={{ countDispatch: dispatch }}>
+        <ComponentA />
+      </counterContext.Provider>
+    </div>
+  )
+}
 
 export default App
