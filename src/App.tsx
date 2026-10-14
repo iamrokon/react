@@ -1,4 +1,4 @@
-// last working page : 160
+// last working page : 164
 import { useCallback, useMemo, useState } from 'react'
 import React from 'react'
 import reactLogo from './assets/react.svg'
@@ -33,6 +33,7 @@ import ComplexCounter from './components/ComplexCounter'
 import CounterThree from './components/CounterThree'
 import ComponentA from './components/ComponentA'
 import counterContext from './context/counterContext'
+import GetPost from './components/GetPost'
 
 
 // function App() {
@@ -216,6 +217,7 @@ function App() {
       <counterContext.Provider value={{ countDispatch: dispatch }}>
         <ComponentA />
       </counterContext.Provider>
+      <GetPost />
     </div>
   )
 }
