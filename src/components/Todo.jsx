@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 // function Todo({ categoryId }) {
 function Todo() {
-    // const [todos, setTodos] = React.useState([])
-    // const [loading, setLoading] = React.useState(true)
-    const [todo, setTodo] = React.useState({
+    // const [todos, setTodos] = useState([])
+    // const [loading, setLoading] = useState(true)
+    const [todo, setTodo] = useState({
         title: '',
         description: '',
     })
-    const [warning, setWarning] = React.useState(null)
+    const [warning, setWarning] = useState(null)
     const { title, description } = todo;
 
     const handleInput = (e) => {
@@ -20,7 +20,7 @@ function Todo() {
         setWarning(updatedWarning)
     }
 
-    // React.useEffect(() => {
+    // useEffect(() => {
     //     setLoading(true)
     //     fetchTodos(categoryId).then(todos => {
     //         setTodos(todos)

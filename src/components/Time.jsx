@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function Time() {
-    const [date, setDate] = React.useState(new Date())
-    const buttonRef = React.useRef(null)
+    const [date, setDate] = useState(new Date())
+    const buttonRef = useRef(null)
 
     const tick = () => {
         setDate(new Date())
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         buttonRef.current = setInterval(tick, 1000)
         return () => {
             clearInterval(buttonRef.current)

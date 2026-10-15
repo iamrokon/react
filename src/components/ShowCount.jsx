@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 function ShowCount({ count, title }) {
     console.log(`Rendering ${title}`);
@@ -6,4 +6,4 @@ function ShowCount({ count, title }) {
         <p>{title} is {count}</p>
     );
 }
-export default React.memo(ShowCount);
+export default memo(ShowCount);

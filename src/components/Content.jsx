@@ -1,7 +1,7 @@
 import Counter from "./Counter";
 import HoverCounter from "./HoverCounter";
 import ThemeContext from "../context/themeContext";
-import React from "react";
+import React, { useContext } from "react";
 
 // export default function Content({ theme }) {
 //     return (
@@ -68,7 +68,7 @@ import React from "react";
 // Content.contextType = ThemeContext;
 
 export default function Content() {
-    const context = React.useContext(ThemeContext);
+    const context = useContext(ThemeContext);
     const { theme, switchTheme } = context;
     console.log('Content rendered');
     return (

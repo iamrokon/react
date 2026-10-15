@@ -1,5 +1,5 @@
 
-import React from 'react';
+import { useReducer } from 'react';
 
 const initialState = {
     counter: 0,
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
 }
 
 export default function ComplexCounter() {
-    const [state, dispatch] = React.useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
         <div>

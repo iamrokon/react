@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 const initialState = 0;
 const initialState2 = 0;
@@ -15,8 +15,8 @@ const reducer = (state, action) => {
 }
 
 function Counter() {
-    const [count, dispatch] = React.useReducer(reducer, initialState);
-    const [count2, dispatch2] = React.useReducer(reducer, initialState2);
+    const [count, dispatch] = useReducer(reducer, initialState);
+    const [count2, dispatch2] = useReducer(reducer, initialState2);
 
     return (
         <div>
